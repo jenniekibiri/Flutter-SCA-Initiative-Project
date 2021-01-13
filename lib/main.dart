@@ -9,11 +9,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter SCA Initiative Project',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+      title: 'MyCalc',
+      theme: ThemeData.dark(),
       home: MyHomePage(),
     );
   }
@@ -28,74 +25,111 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: <Widget>[
-          Expanded(
-            flex: 2,
-            child: Center(
-              child: Text(
-                'Level Up!',
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  color: Colors.black,
-                  fontSize: 30,
-                  fontFamily: 'worksans',
-                ),
-              ),
-            ),
-          ),
-          Expanded(
-            flex: 2,
-            child: Stack(
-              children: [
-                Align(
-                  alignment: Alignment.center,
-                  child: Image.asset(
-                    'assets/images/ribbon.png',
-                    height: 200,
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.center,
-                  child: Image.asset(
-                    'assets/images/badge.png',
-                    height: 200,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Expanded(
-            flex: 2,
-            child: Center(
-              child: Text(
-                'Level 1',
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  color: Colors.black,
-                  fontSize: 30,
-                  fontFamily: 'worksans',
-                ),
-              ),
-            ),
-          ),
-          Expanded(
-            flex: 2,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Text(
-                'Congratulations!!!\n\non making it into the programme \n Kindly clear up this screen to start your task.',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 14,
-                  fontFamily: 'opensans',
-                ),
-              ),
-            ),
-          ),
-        ],
+      resizeToAvoidBottomPadding: false,
+      appBar: AppBar(
+        title: Text('My Calc'),
       ),
+      body: Container(
+        padding: EdgeInsets.only(bottom:40.0, top: 15.0, left: 40.0, right: 40.0),
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: TextField(
+                keyboardType: TextInputType.number,
+                cursorColor: Colors.purpleAccent,
+                decoration: InputDecoration(
+                  labelText: 'output',
+                  fillColor: Colors.white,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(17.0),
+                  ),
+                  hintText: 'Result: output',
+                  hintStyle: TextStyle(
+                    color: Colors.purpleAccent,
+                    fontSize: 15.0,
+                  ),
+                )),
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 20.0),
+          ),
+          TextField(
+            keyboardType: TextInputType.number,
+            cursorColor: Colors.purpleAccent,
+            decoration: InputDecoration(
+              labelText: 'first number',
+              fillColor: Colors.white,
+              hintText: 'Enter your First number',
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(18.0),
+              ),
+            ),
+          ),
+          Padding(padding: EdgeInsets.only(top: 15)),
+          TextField(
+            keyboardType: TextInputType.number,
+            cursorColor: Colors.deepPurple,
+            decoration: InputDecoration(
+              labelText: 'second number',
+              fillColor: Colors.white,
+              hintText: 'Enter your second number',
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(18.0),
+              ),
+            ),
+          ),
+          Padding(padding: EdgeInsets.only(top: 15)),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+               MaterialButton(
+                child: Text('+'),
+                shape: StadiumBorder(),
+                color: Colors.deepPurple,
+                onPressed: () {},
+              ),
+                MaterialButton(
+                child: Text('-', style: TextStyle(fontWeight: FontWeight.bold),),
+                shape: StadiumBorder(),
+                color: Colors.deepPurple,
+                onPressed: () {},
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+            
+              MaterialButton(
+                child: Text('*'),
+                shape: StadiumBorder(),
+                color: Colors.deepPurple,
+                onPressed: () {},
+              ),
+              MaterialButton(
+                child: Text('/'),
+                shape: StadiumBorder(),
+                color: Colors.deepPurple,
+                onPressed: () {},
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              MaterialButton(
+                child: Text('clear'),
+                shape: StadiumBorder(),
+                 padding: EdgeInsets.only(left: 120.0, right: 120.0, top: 12.0, bottom: 12.0),
+                color: Colors.deepPurple,
+                onPressed: () {},
+              ),
+            ],
+          )
+        ],
+      )),
     );
   }
 }
