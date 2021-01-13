@@ -26,46 +26,46 @@ class _MyHomePageState extends State<MyHomePage> {
   TextEditingController t1 = TextEditingController(text: "");
   TextEditingController t2 = TextEditingController(text: "");
 
-
   doAddition() {
-  setState(() {
-    num2 = double.parse(t2.text);
-    num1 = double.parse(t1.text);
-    output= num1 + num2;
-  });
-}
+    setState(() {
+      num2 = double.parse(t2.text);
+      num1 = double.parse(t1.text);
+      output = num1 + num2;
+    });
+  }
 
-doSubstraction() {
-  setState(() {
-    num2 = double.parse(t2.text);
-    num1 = double.parse(t1.text);
-    output= num1 - num2;
-  });
-}
+  doSubstraction() {
+    setState(() {
+      num2 = double.parse(t2.text);
+      num1 = double.parse(t1.text);
+      output = num1 - num2;
+    });
+  }
 
-doMultiplication() {
-  setState(() {
-    num2 = double.parse(t2.text);
-    num1 = double.parse(t1.text);
-    output= num1 * num2;
-  });
-}
+  doMultiplication() {
+    setState(() {
+      num2 = double.parse(t2.text);
+      num1 = double.parse(t1.text);
+      output = num1 * num2;
+    });
+  }
 
-doDivision() {
-  setState(() {
-    num2 = double.parse(t2.text);
-    num1 = double.parse(t1.text);
-    output= (num1 / num2);
-  });
-}
+  doDivision() {
+    setState(() {
+      num2 = double.parse(t2.text);
+      num1 = double.parse(t1.text);
+      output = (num1 / num2);
+    });
+  }
 
-doClear() {
-  setState(() {
-    t1 = TextEditingController(text: '');
-    t2 = TextEditingController(text: '');
-    output= 0;
-  });
-}
+  clearFields() {
+    setState(() {
+      t1 = TextEditingController(text: '');
+      t2 = TextEditingController(text: '');
+      output = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,21 +81,10 @@ doClear() {
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                child: TextField(
-                    keyboardType: TextInputType.number,
-                    cursorColor: Colors.purpleAccent,
-                    decoration: InputDecoration(
-                      labelText: 'output',
-                      fillColor: Colors.white,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(17.0),
-                      ),
-                      hintText: 'output: $output',
-                      hintStyle: TextStyle(
-                        color: Colors.purpleAccent,
-                        fontSize: 15.0,
-                      ),
-                    )),
+                child: Text(
+                  'Output:$output',
+                  style: TextStyle(color: Colors.white, fontSize: 20.0),
+                ),
               ),
               Padding(
                 padding: EdgeInsets.only(top: 20.0),
@@ -103,7 +92,6 @@ doClear() {
               TextField(
                 keyboardType: TextInputType.number,
                 controller: t1,
-
                 cursorColor: Colors.purpleAccent,
                 decoration: InputDecoration(
                   labelText: 'first number',
@@ -139,9 +127,8 @@ doClear() {
                     padding: EdgeInsets.only(
                         left: 50.0, right: 50.0, top: 12.0, bottom: 12.0),
                     onPressed: () {
-                    //TODO:
-                    doAddition();
-                  },
+                      doAddition();
+                    },
                   ),
                   MaterialButton(
                     child: Text(
@@ -152,10 +139,9 @@ doClear() {
                     color: Colors.deepPurple,
                     padding: EdgeInsets.only(
                         left: 50.0, right: 50.0, top: 12.0, bottom: 12.0),
-                     onPressed: () {
-                    //TODO:
-                    doSubstraction();
-                  },
+                    onPressed: () {
+                      doSubstraction();
+                    },
                   ),
                 ],
               ),
@@ -171,10 +157,9 @@ doClear() {
                     color: Colors.deepPurple,
                     padding: EdgeInsets.only(
                         left: 50.0, right: 50.0, top: 12.0, bottom: 12.0),
-                  onPressed: () {
-                    //TODO:
-                    doMultiplication();
-                  },
+                    onPressed: () {
+                      doMultiplication();
+                    },
                   ),
                   MaterialButton(
                     child: Text('/'),
@@ -183,9 +168,8 @@ doClear() {
                     padding: EdgeInsets.only(
                         left: 50.0, right: 50.0, top: 12.0, bottom: 12.0),
                     onPressed: () {
-                    //TODO:
-                    doDivision();
-                  },
+                      doDivision();
+                    },
                   ),
                 ],
               ),
@@ -201,7 +185,9 @@ doClear() {
                     padding: EdgeInsets.only(
                         left: 120.0, right: 120.0, top: 12.0, bottom: 12.0),
                     color: Colors.red,
-                    onPressed: () {},
+                    onPressed: () {
+                      clearFields();
+                    },
                   ),
                 ],
               )
